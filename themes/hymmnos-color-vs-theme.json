@@ -1,6 +1,5 @@
 {
     "name": "Hymmnos Color VS Theme",
-    "type": "light",
     "tokenColors": [
         {
             "settings": {
@@ -203,8 +202,5 @@
             }
         }
     ],
-	"colors": {
-		"editor.foreground": "#A5A5A5"
-    },
     "semanticHighlighting": true
 }
