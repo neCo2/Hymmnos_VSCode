@@ -26,7 +26,10 @@ jobs:
 
       - name: Get extension filename
         id: package_info
-        run: echo "VSIX_FILE=$(node -p 'require("./package.json").name + "-" + require("./package.json").version + ".vsix"')" >> $GITHUB_ENV
+        run: |
+          echo "VSIX_FILE=$(node -p 'require("./package.json").name + "-" + require("./package.json").version + ".vsix"')" >> $GITHUB_ENV
+          echo "TAG_NAME=$(date +'%s')"
+
 
       - name: Package VSCode extension
         run: vsce package -o $VSIX_FILE
@@ -35,5 +38,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: ${{ env.VSIX_FILE }}
-          tag_name: "v$(date +'%s')"
+          tag_name: ${{ env.TAG_NAME }}
           token: ${{ secrets.GITHUB_TOKEN }}
