@@ -68,11 +68,6 @@
     {
         "scopeName": "source.string.hymn",
         "path": "./syntaxes/string.hymn.tmLanguage.json"
-    }],
-    "themes": [{
-      "label": "Hymmnos",
-      "uiTheme": "vs",
-      "path": "./themes/hymmnos-color-vs-theme.json"
     }]
   }
 }
