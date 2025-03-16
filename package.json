@@ -1,4 +1,8 @@
 {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neCo2/Hymmnos_VSCode"
+  },
   "name": "hymmnos-language-support",
   "displayName": "Hymmnos Language Support",
   "description": "Language support for hymmnos parsing and syntax highlighting",
