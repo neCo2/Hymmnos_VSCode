@@ -1,0 +1,38 @@
+name: Release VSCode Extension
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install vsce and ovsx
+        run: npm install -g @vscode/vsce ovsx
+
+      - name: Get extension filename
+        id: package_info
+        run: echo "VSIX_FILE=$(node -p 'require("./package.json").name + "-" + require("./package.json").version + ".vsix"')" >> $GITHUB_ENV
+
+      - name: Package VSCode extension
+        run: vsce package -o $VSIX_FILE
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ env.VSIX_FILE }}
+          token: ${{ secrets.GITHUB_TOKEN }}
