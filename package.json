@@ -7,6 +7,7 @@
   "displayName": "Hymmnos Language Support",
   "description": "Language support for hymmnos parsing and syntax highlighting",
   "version": "0.0.1",
+  "publisher": "(You)",
   "engines": {
     "vscode": "^1.88.0"
   },
