@@ -35,4 +35,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: ${{ env.VSIX_FILE }}
+          tag_name: ${{ env.VSIX_FILE }}
           token: ${{ secrets.GITHUB_TOKEN }}
