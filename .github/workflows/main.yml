@@ -21,8 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install vsce and ovsx
-        run: npm install -g @vscode/vsce ovsx
+      - name: Install vsce
+        run: npm install -g @vscode/vsce
 
       - name: Get extension filename
         id: package_info
